@@ -1,12 +1,16 @@
 const express = require('express');
 // eslint-disable-next-line new-cap
 const router = express.Router();
-// const blobFetcher = require('../azure/blob-fetcher');
-// const helperShapefileCountry = require('../helpers/helper-shapefile-country')
-// const helperShapefile = require('../helpers/helper-shapefile')
+const fs = require('fs');
 
-router.get('/:countryCode', (req, res) => {
-  return res.send('hello world from pop points one country!');
+router.get('/', (req, res) => {
+  const path = './public/sample-data/sample_colombia_population_points.csv'
+  let fileContent;
+  return new Promise(function(resolve) {
+    fileContent = fs.readFileSync(path, {encoding: 'utf8'});
+      resolve(fileContent);
+    })
+    .then(result => res.send(result));
 })
 
 module.exports = router;
