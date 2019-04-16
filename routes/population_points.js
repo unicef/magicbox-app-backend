@@ -4,8 +4,9 @@ const router = express.Router();
 // const blobFetcher = require('../azure/blob-fetcher');
 // const helperShapefileCountry = require('../helpers/helper-shapefile-country')
 // const helperShapefile = require('../helpers/helper-shapefile')
-router.get('/', (req, res) => {
-  return res.send('hello world from index!');
+
+router.get('/:countryCode', (req, res) => {
+  return res.send('hello world from pop points one country!');
 })
 
 module.exports = router;

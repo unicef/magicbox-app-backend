@@ -5,7 +5,11 @@ const router = express.Router();
 // const helperShapefileCountry = require('../helpers/helper-shapefile-country')
 // const helperShapefile = require('../helpers/helper-shapefile')
 router.get('/', (req, res) => {
-  return res.send('hello world from index!');
+  return res.send('hello world from schools global!');
+})
+
+router.get('/:countryCode', (req, res) => {
+  return res.send('hello world from schools one country!');
 })
 
 module.exports = router;
