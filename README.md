@@ -10,5 +10,5 @@ To run locally
 
 ```console
 npm install
-node app.js
+node src/app.js
 ```
