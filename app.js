@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ limit: '250mb', extended: true }))
 app.use('/api', index);
 app.use('/api/configs', configs);
 app.use('/api/schools', schools);
-app.use('/api/population_points', population_points);
+app.use('/api/population-points', population_points);
 app.use('/api/shapefiles', shapefiles);
 
 app.listen(port, () => console.log(`Listening on port ${port}...`))
