@@ -4,7 +4,7 @@ const router = express.Router();
 const jsonfile = require('jsonfile');
 
 router.get('/', (req, res) => {
-    const path = './public/sample-data/sample_colombia_admin_0.json';
+    const path = '../public/sample-data/sample_colombia_admin_0.json';
     return new Promise(function(resolve) {
         jsonfile.readFile(path, (err, file) => {
             resolve(file);
