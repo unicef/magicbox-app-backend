@@ -7,7 +7,7 @@ function requestAsync(url) {
             if (err) {
                 reject(err);
             } else if (response.statusCode !== 200) {
-                reject(new Error("response.statusCode = " + response.statusCode));
+                reject(new Error('response.statusCode = ' + response.statusCode));
             } else {
                 resolve(body);
             }
@@ -22,15 +22,15 @@ function getData(endpoints) {
 }
 
 let endpoints = [
-  'http://localhost:5000/api/configs',
-  'http://localhost:5000/api/schools',
-  'http://localhost:5000/api/population-points',
-  'http://localhost:5000/api/admin_boundaries'
-]
+    'http://localhost:5000/api/configs',
+    'http://localhost:5000/api/schools',
+    'http://localhost:5000/api/population-points',
+    'http://localhost:5000/api/admin_boundaries'
+];
 
 getData(endpoints).then(function(results) {
-    console.log(results)
+    console.log(results); // eslint-disable-line
     // do some sort of results assembly into the config here
 }).catch(function(err) {
-    console.log(err)
+    console.log(err); // eslint-disable-line
 });
