@@ -2,7 +2,7 @@ const express = require('express');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 const jsonfile = require('jsonfile');
-const helper = require('../helpers/assemble-config')
+const helper = require('../helpers/assemble-config');
 
 // the view endpoint should be what controls the view that is compiled.
 //  - First, it should return the view object containing id, domain/url, theme_id and data_id
