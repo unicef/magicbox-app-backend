@@ -16,7 +16,7 @@ app.use('/api', index);
 app.use('/api/configs', configs);
 app.use('/api/schools', schools);
 app.use('/api/population-points', population_points);
-app.use('/api/admin_boundaries', admin_boundaries);
+app.use('/api/admin-boundaries', admin_boundaries);
 app.use('/api/views', views);
 
 app.listen(port, () => console.log(`Listening on port ${port}...`)); // eslint-disable-line

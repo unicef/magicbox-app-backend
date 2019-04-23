@@ -1,6 +1,10 @@
 {
   "_id": 1,
   "domain":"/c/colombia/school-mapping",
-  "theme_id": 1,
-  "data_id": 1
+  "theme": "../public/sample-data/sample_colombia_config.json",
+  "data_endpoints": {
+    "population_points": "api/population-points",
+    "schools": "api/schools",
+    "admin_boundaries": "api/admin-boundaries"
+  }
 }

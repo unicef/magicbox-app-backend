@@ -9,28 +9,23 @@ function requestAsync(url) {
             } else if (response.statusCode !== 200) {
                 reject(new Error('response.statusCode = ' + response.statusCode));
             } else {
+                console.log("resolving body", body)
                 resolve(body);
             }
         });
     });
 }
-// multiple endpoints to retrieve data from
-function getData(endpoints) {
-    return Promise.all(endpoints.map(function(url) {
-        return requestAsync(url);
-    }));
-}
 
-let endpoints = [
-    'http://localhost:5000/api/configs',
-    'http://localhost:5000/api/schools',
-    'http://localhost:5000/api/population-points',
-    'http://localhost:5000/api/admin_boundaries'
-];
-
-getData(endpoints).then(function(results) {
-    console.log(results); // eslint-disable-line
-    // do some sort of results assembly into the config here
-}).catch(function(err) {
-    console.log(err); // eslint-disable-line
-});
+module.exports = {
+  getData: (view) => {
+      return Promise.all(Object.values(view.data_endpoints).map(function(url) {
+          // console.log("requesting:", url)
+          return requestAsync(`http://localhost:5000/${url}`);
+      })).then(function(results) {
+          console.log(results); // eslint-disable-line
+          // do some sort of results assembly into the config here
+      }).catch(function(err) {
+          console.log(err); // eslint-disable-line
+      });
+  }
+};
