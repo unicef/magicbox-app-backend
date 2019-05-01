@@ -17,7 +17,7 @@ router.get('/', (req, res) => { // eslint-disable-line
             resolve(file);
         });
     })
-        .then(result => helper.getData(result));
+        .then(result => res.send(result));
 });
 
 module.exports = router;

@@ -8,6 +8,12 @@ const views = require('./routes/views');
 const admin_boundaries = require('./routes/admin_boundaries');
 const schools = require('./routes/schools');
 const population_points = require('./routes/population_points');
+const mongoUtil = require('./mongoUtil');
+
+mongoUtil.connectToServer( function( err, client ) {
+  if (err) console.log(err);
+  console.log('connected!');
+} );
 
 app.use(bodyParser.json({ limit: '250mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '250mb', extended: true }));
