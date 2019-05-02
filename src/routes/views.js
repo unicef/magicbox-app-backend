@@ -5,8 +5,8 @@ const mongoUtil = require('../mongoUtil');
 
 router.get('/', (req, res) => { // eslint-disable-line
     const db = mongoUtil.getDb();
-    db.collection('view').find().toArray((err, items) => {
-        console.log(items) // eslint-disable-line
+    db.collection('view').find({domain: '/c/colombia/school-mapping'}).toArray((err, items) => {
+        res.send(items) // eslint-disable-line
     });
 });
 
