@@ -18,6 +18,7 @@
   "homepage": "https://github.com/unicef/magicbox-app-backend#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "jsonfile": "^5.0.0",
     "kepler.gl": "^0.2.4",
