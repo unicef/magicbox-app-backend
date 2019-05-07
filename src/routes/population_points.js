@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         fileContent = fs.readFileSync(path, {encoding: 'utf8'});
         resolve(fileContent);
     })
-        .then(result => res.send(result));
+        .then(result => res.send(JSON.stringify(result)));
 });
 
 module.exports = router;
