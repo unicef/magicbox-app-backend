@@ -17,7 +17,7 @@ mongoUtil.connectToServer( function( err, client ) {
   console.log('connected!');
 } );
 
-const clearlist = ['http://localhost:8080',]
+const clearlist = ['http://localhost:8080']
 const corsOptions = {
   origin: function (origin, callback) {
     if (clearlist.indexOf(origin) !== -1) {
