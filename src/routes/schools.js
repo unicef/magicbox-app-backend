@@ -4,7 +4,7 @@ const router = express.Router();
 const fs = require('fs');
 
 router.get('/', (req, res) => {
-    const path = '../public/sample-data/sample_colombia_schools.csv';
+    const path = '../public/sample-data/schools.csv';
     let fileContent;
     return new Promise(function(resolve) {
         fileContent = fs.readFileSync(path, {encoding: 'utf8'});
