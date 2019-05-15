@@ -4,38 +4,38 @@ const router = express.Router();
 const mongoUtil = require('../mongoUtil');
 
 router.get('/', (req, res) => { // eslint-disable-line
-        const db = mongoUtil.getDb();
-        db.collection('config').findOne({url: '/'}, function(err, result) {
+    const db = mongoUtil.getDb();
+    db.collection('config').findOne({url: '/'}, function(err, result) {
         if (err) throw err;
         res.send(result);
     });
 });
 
 router.get('/c/:country/:dataset', (req, res) => { // eslint-disable-line
-        const db = mongoUtil.getDb();
-        let query = {};
-        query.url = req.url.slice(0, -1);;
-        db.collection('config').findOne(query, function(err, result) {
+    const db = mongoUtil.getDb();
+    let query = {};
+    query.url = req.url.slice(0, -1);
+    db.collection('config').findOne(query, function(err, result) {
         if (err) throw err;
         res.send(result);
     });
 });
 
 router.get('/c/:country', (req, res) => { // eslint-disable-line
-        const db = mongoUtil.getDb();
-        let query = {};
-        query.url = req.url.slice(0, -1);;
-        db.collection('config').findOne(query, function(err, result) {
+    const db = mongoUtil.getDb();
+    let query = {};
+    query.url = req.url.slice(0, -1);
+    db.collection('config').findOne(query, function(err, result) {
         if (err) throw err;
         res.send(result);
     });
 });
 
 router.get('/u/:user/', (req, res) => { // eslint-disable-line
-        const db = mongoUtil.getDb();
-        let query = {};
-        query.url = req.url.slice(0, -1);;
-        db.collection('config').findOne(query, function(err, result) {
+    const db = mongoUtil.getDb();
+    let query = {};
+    query.url = req.url.slice(0, -1);
+    db.collection('config').findOne(query, function(err, result) {
         if (err) throw err;
         res.send(result);
     });
