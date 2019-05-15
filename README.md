@@ -4,7 +4,7 @@ Work in progress.
 
 ## Running the application
 
-The port will default to 5000. If you would like to set a custom port, create a .env file in the root directory and create a PORT variable.
+To set a port and connect to a backend, create a .env file in the root directory and create a SERVER_URL variable.
 
 To run locally
 
