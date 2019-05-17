@@ -11,20 +11,20 @@ router.get('/', (req, res) => { // eslint-disable-line
     });
 });
 
-router.get('/c/:country/:dataset', (req, res) => { // eslint-disable-line
+router.get('/:dataset/c/:country/', (req, res) => { // eslint-disable-line
     const db = mongoUtil.getDb();
     let query = {};
-    query.url = req.url.slice(0, -1);
+    query.url = req.url;
     db.collection('config').findOne(query, function(err, result) {
         if (err) throw err;
         res.send(result);
     });
 });
 
-router.get('/c/:country', (req, res) => { // eslint-disable-line
+router.get('/:dataset', (req, res) => { // eslint-disable-line
     const db = mongoUtil.getDb();
     let query = {};
-    query.url = req.url.slice(0, -1);
+    query.url = req.url;
     db.collection('config').findOne(query, function(err, result) {
         if (err) throw err;
         res.send(result);
