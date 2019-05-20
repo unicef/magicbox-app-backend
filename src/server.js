@@ -13,21 +13,21 @@ const population_points = require('./routes/population_points');
 const mongoUtil = require('./mongoUtil');
 
 
-mongoUtil.connectToServer( function( err, client ) {
-  if (err) console.log(err);
-  console.log('connected!');
+mongoUtil.connectToServer( function( err ) {
+    if (err) console.log(err); // eslint-disable-line
+    console.log('connected!'); // eslint-disable-line
 } );
 
-const clearlist = ['http://localhost:8080']
+const clearlist = ['http://localhost:8080'];
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (clearlist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
+    origin: function (origin, callback) {
+        if (clearlist.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
     }
-  }
-}
+};
 // Then pass them to cors:
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '250mb', extended: true }));
