@@ -11,6 +11,7 @@ router.get('/', (req, res) => { // eslint-disable-line
     });
 });
 
+// this matches with data.datasetName + data.path from the frontend
 router.get('/:dataset/c/:country/', (req, res) => { // eslint-disable-line
     const db = mongoUtil.getDb();
     let query = {};
@@ -21,6 +22,7 @@ router.get('/:dataset/c/:country/', (req, res) => { // eslint-disable-line
     });
 });
 
+// this matches with data.datasetName from the frontend
 router.get('/:dataset', (req, res) => { // eslint-disable-line
     const db = mongoUtil.getDb();
     let query = {};
@@ -31,10 +33,11 @@ router.get('/:dataset', (req, res) => { // eslint-disable-line
     });
 });
 
+// this matches with data.path from the frontend (when data.datasetName is null or '')
 router.get('/u/:user/', (req, res) => { // eslint-disable-line
     const db = mongoUtil.getDb();
     let query = {};
-    query.url = req.url.slice(0, -1);
+    query.url = req.url;
     db.collection('config').findOne(query, function(err, result) {
         if (err) throw err;
         res.send(result);
