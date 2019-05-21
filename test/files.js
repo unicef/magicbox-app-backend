@@ -23,11 +23,8 @@ describe('static povertyradar configs', () => {
                   done();
                 });
         });
-    });
 
-    describe('GET /povertyradar/c/:countryname ', () => {
-        // Test to get the global view
-        it('should get a preconfigured object for the global view', (done) => {
+        it('should get a preconfigured object when passed a valid country', (done) => {
             chai.request(app)
                 .get('/api/files/povertyradar/c/nigeria')
                 .end((err, res) => {
