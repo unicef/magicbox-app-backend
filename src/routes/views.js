@@ -62,7 +62,7 @@ function deleteFile(req, res) {
     db.collection('config').deleteOne(query, function(err, result) {
         if (err) throw err;
         res.send(result);
-  });
+    });
 }
 
 // DELETE FILE ROUTES
