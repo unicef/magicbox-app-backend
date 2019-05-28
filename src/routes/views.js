@@ -37,7 +37,7 @@ router.post('/create', postFile);
 // UPDATE FILE FUNCTIONS
 function updateFile(req, res) {
     let query = {};
-    query.url = req.body.url;
+    query.url = req.url;
     let newData = {
         $set: {
             mapConfig: req.body.mapConfig,
@@ -54,14 +54,20 @@ function updateFile(req, res) {
 // UPDATE FILE ROUTES
 router.post('/update', updateFile);
 
-// // DELETE FILE FUNCTIONS
-// function deleteFile(req, res) {
-//     const db = mongoUtil.getDb();
-//     let query = {};
-//     query.url = req.url;
-//     db.collection('config').deleteOne(query, function(err, obj) {
-//         if (err) throw err;
-//   });
+// DELETE FILE FUNCTIONS
+function deleteFile(req, res) {
+    const db = mongoUtil.getDb();
+    let query = {};
+    query.url = req.body.url;
+    db.collection('config').deleteOne(query, function(err, result) {
+        if (err) throw err;
+        res.send(result);
+  });
+}
+
+// DELETE FILE ROUTES
+router.delete('/delete', deleteFile);
+
 
 
 module.exports = router;
