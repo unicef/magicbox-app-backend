@@ -32,7 +32,10 @@ node src/app.js
 ## Routing
 
 The routing convention, consistent across the front and back end of this application, is as follows:
-    For the /views endpoint
-    - '/:dataset' - Returns a global view that displays a map of the world and data of a particular theme (for example: poverty, school connectivity, etc.)
-    - '/:dataset/c/:country' - Returns a country-specific view of a dataset like the one mentioned above
-    - '/u/:user' - Returns a user-created view (see more details about this in "Running the application")
+    For the /views endpoint:
+
+    ```console
+    - '/:dataset' Returns a global view that displays a map of the world and data of a particular theme (for example: poverty, school connectivity, etc.)
+    - '/:dataset/c/:country' Returns a country-specific view of a dataset like the one mentioned above
+    - '/u/:user' Returns a user-created view (see more details about this in "Running the application")
+    ```
