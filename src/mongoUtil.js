@@ -1,9 +1,9 @@
 const MongoClient = require( 'mongodb' ).MongoClient;
-const url = "mongodb://localhost:27017";
+const url = `mongodb://${process.env.MONGO_IP}:27017`;
 
 const dbName = 'myproject';
 let _db
-
+console.log(url)
 module.exports = {
 
   connectToServer: function( callback ) {
