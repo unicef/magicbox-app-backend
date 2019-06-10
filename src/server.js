@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const configs = require('./routes/configs');
 const files = require('./routes/files');
+const explorer = require('./routes/explorer');
 const views = require('./routes/views');
 const admin_boundaries = require('./routes/admin_boundaries');
 const schools = require('./routes/schools');
@@ -23,25 +24,26 @@ const clearlist = ['http://localhost:8080', 'http://192.168.99.100', 'https://ma
 const corsOptions = {
   origin: function (origin, callback) {
     if (clearlist.indexOf(origin) !== -1) {
-      callback(null, true)
+      callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'))
+      callback(new Error('Not allowed by CORS'));
     }
   }
-}
+};
 // Then pass them to cors:
 // app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '250mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '250mb', extended: true }));
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
 app.use(public_url, index);
-app.use(`${public_url}/api/configs`, configs);
+app.use(`${public_url}/configs`, configs);
 app.use(`${public_url}/files`, files);
+app.use(`${public_url}/explorer`, explorer);
 app.use(`${public_url}/schools`, schools);
 app.use(`${public_url}/population-points`, population_points);
 app.use(`${public_url}/admin-boundaries`, admin_boundaries);
