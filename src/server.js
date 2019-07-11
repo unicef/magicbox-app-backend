@@ -30,7 +30,7 @@ const corsOptions = {
   }
 }
 // Then pass them to cors:
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '250mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '250mb', extended: true }));
 app.use(function(req, res, next) {
