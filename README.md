@@ -16,6 +16,8 @@ The connection to MongoDB is configured in src/mongoUtil.js. You can set up an .
     - DB_CONN=mongodb://localhost:27017 (default local url for MongoDB connections)
     - DB_NAME=myproject (insert the name of the project you created when instantiating your database)
     - FRONTEND_URL=http://localhost:8080 (default local url for the React front end Magicbox App, used for CORS options in server.js)
+    - PUBLIC_URL=/api # subpath API url
+    - PROJECT_THEME_URL=/povertyradar # The value of url of global view config
 
 The '/views' endpoint contains routes for all CRUD functionality. At this stage, however, there is not a UI for creating, updating, or deleting a view. If you would like to create your own map, you can learn more about the architecture of this application and the 'view' object in the [Magicbox App documentation](https://github.com/unicef/magicbox-app), and use kepler.gl and a text editor to create or update your own views.
 
@@ -38,4 +40,3 @@ The routing convention, consistent across the front and back end of this applica
     - '/:dataset' Returns a global view that displays a map of the world and data of a particular theme (for example: poverty, school connectivity, etc.)
     - '/:dataset/c/:country' Returns a country-specific view of a dataset like the one mentioned above
     - '/u/:user' Returns a user-created view (see more details about this in "Running the application")
-  

@@ -4,7 +4,9 @@
   "description": "REST express API to serve configs to magicbox-app",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "start": "node ./src/server.js",
+    "docker-build": "docker build -t mikefab/magicbox-povertyradar-back . --file Dockerfile"
   },
   "repository": {
     "type": "git",
