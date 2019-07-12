@@ -2,15 +2,13 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const dotenv = require('dotenv');
+const myEnv = dotenv.config();
 const port = process.env.PORT || 5000;
 const bodyParser = require('body-parser');
 const index = require('./routes/index');
-const configs = require('./routes/configs');
 const files = require('./routes/files');
 const views = require('./routes/views');
-const admin_boundaries = require('./routes/admin_boundaries');
-const schools = require('./routes/schools');
-const population_points = require('./routes/population_points');
 const mongoUtil = require('./mongoUtil');
 const public_url = process.env.PUBLIC_URL
 
@@ -40,11 +38,11 @@ app.use(function(req, res, next) {
 });
 
 app.use(public_url, index);
-app.use(`${public_url}/api/configs`, configs);
+// app.use(`${public_url}/api/configs`, configs);
 app.use(`${public_url}/files`, files);
-app.use(`${public_url}/schools`, schools);
-app.use(`${public_url}/population-points`, population_points);
-app.use(`${public_url}/admin-boundaries`, admin_boundaries);
+// app.use(`${public_url}/schools`, schools);
+// app.use(`${public_url}/population-points`, population_points);
+// app.use(`${public_url}/admin-boundaries`, admin_boundaries);
 app.use(`${public_url}/views`, views);
 
 app.listen(port, () => console.log(`Listening on port ${port}...`)); // eslint-disable-line
